@@ -7,6 +7,11 @@
   Źródła, materiały, grafika oraz pliki robocze mają pozostawać w `projekt/`.
   Standardowe ukryte metadane Git znajdują się w katalogu głównym repozytorium.
 - Oba PDF-y buduj ze wspólnej treści: `latex/main.tex` i `latex/main-wyklady.tex`.
+- Treść edytuj w osobnych plikach `latex/rozdzialy/00-...tex` do `06-...tex`.
+  Pliki obejmują wprowadzenie i paragrafy §1-§6 rozdziału 1 książki.
+  `main.tex` ustala ich kolejność i wspólny rozdział; nie przywracaj jednego
+  zbiorczego pliku `tresc.tex`. Nie utożsamiaj numeru pliku z numerem wykładu.
+  Początki wykładów zaznaczaj wewnątrz plików z treścią.
 - Zachowuj A4, PL Roman 12 pt, klasyczny skład i czarne klikalne odnośniki.
 - Granice wykładów ustalaj z użytkownikiem. Polecenie
   `\poczatekwykladu{numer}` pokazuje oznaczenie tylko w wariancie wykładowym.

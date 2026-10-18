@@ -14,7 +14,14 @@ demling-nfa-ch1/
     │   ├── main.tex
     │   ├── main-wyklady.tex
     │   ├── preambula.tex
-    │   └── rozdzialy/tresc.tex
+    │   └── rozdzialy/
+    │       ├── 00-wprowadzenie.tex
+    │       ├── 01-jednoznacznosc-stopnia.tex
+    │       ├── 02-konstrukcja-stopnia.tex
+    │       ├── 03-wlasnosci-stopnia.tex
+    │       ├── 04-twierdzenie-borsuka.tex
+    │       ├── 05-wzor-iloczynowy.tex
+    │       └── 06-uwagi-koncowe.tex
     ├── materialy/
     ├── grafika/
     ├── kompiluj.ps1
@@ -22,7 +29,8 @@ demling-nfa-ch1/
     └── demling-nfa-ch1.code-workspace
 ```
 
-Oba PDF-y zawierają obecnie wyłącznie stronę tytułową. Treść pozostaje pusta.
+Oba PDF-y zawierają obecnie stronę tytułową, spis treści i nagłówki części.
+Treść merytoryczna pozostaje pusta; w źródłach są komentarze ułatwiające edycję.
 Wariant ogólny i wariant z podziałem na wykłady korzystają z tych samych źródeł.
 Format: A4, PL Roman 12 pt, klasyczny skład, czarne klikalne odnośniki.
 
@@ -30,12 +38,37 @@ Format: A4, PL Roman 12 pt, klasyczny skład, czarne klikalne odnośniki.
 
 Otwórz `demling-nfa-ch1.code-workspace` z tego folderu. Obszar roboczy
 pokazuje całe repozytorium wraz z dwoma PDF-ami w katalogu głównym.
-Treść edytuje się w `latex/rozdzialy/tresc.tex`; kolejne pliki można dodawać
-w tym samym folderze i włączać poleceniem `\input` w `latex/main.tex`.
+Faktyczną treść wpisuj bezpośrednio w odpowiednim pliku w `latex/rozdzialy/`,
+pod aktywnym nagłówkiem `\section{...}`. Każdy plik obejmuje jedną część
+rozdziału 1 książki; prefiksy 01-06 odpowiadają paragrafom §1-§6, nie wykładom.
+Plik `00-wprowadzenie.tex` obejmuje wprowadzenie przed §1.
+W komentarzach przygotowano nagłówki podsekcji: usuń początkowy `%`,
+gdy chcesz włączyć daną podsekcję, i wpisz pod nią treść.
 
-Po dodaniu pierwszej treści włącz spis treści w `latex/main.tex`.
-Granice wykładów oznaczaj `\poczatekwykladu{numer}` wyłącznie
-na podstawie wskazówek użytkownika. Są widoczne tylko w wariancie wykładowym.
+`latex/main.tex` ustala tytuł, spis treści i kolejność plików przez `\input`.
+Nie wpisuj w nim opracowania i nie dodawaj osobnego `\chapter` do każdego pliku:
+wszystkie pliki należą do jednego rozdziału książki.
+
+Początek wykładu oznaczaj **w pliku z treścią**, dokładnie w miejscu,
+w którym wykład się zaczyna, np.:
+
+```latex
+\subsection{Oznaczenia}
+
+\poczatekwykladu{1}
+
+Tutaj wpisz treść pierwszego wykładu.
+
+\poczatekwykladu{2}
+
+Tutaj wpisz dalszą treść, od początku drugiego wykładu.
+```
+
+Przykład powyżej pokazuje składnię; nie jest wstawiony do skryptu.
+Wykład może zaczynać się w środku podsekcji i obejmować kilka plików.
+Znacznika nie powtarzaj przy przejściu do kolejnego pliku, jeśli wykład trwa dalej.
+Granice wykładów wynikają wyłącznie ze wskazówek użytkownika.
+Znaczniki są widoczne tylko w PDF-ie z podziałem na wykłady.
 
 ## Budowanie PDF-ów
 
