@@ -1,0 +1,13 @@
+/build/
+/tmp/
+*.synctex.gz
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.dvi
+*.xdv
+Thumbs.db
+.DS_Store

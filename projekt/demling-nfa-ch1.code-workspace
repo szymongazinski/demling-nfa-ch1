@@ -1,0 +1,26 @@
+{
+  "folders": [
+    { "name": "demling-nfa-ch1", "path": ".." }
+  ],
+  "settings": {
+    "files.encoding": "utf8",
+    "files.exclude": { "**/projekt/build": true },
+    "latex-workshop.latex.autoBuild.run": "never"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Zbuduj oba PDF-y",
+        "type": "process",
+        "command": "powershell.exe",
+        "args": [
+          "-NoProfile", "-ExecutionPolicy", "Bypass",
+          "-File", "${workspaceFolder}/projekt/kompiluj.ps1"
+        ],
+        "group": { "kind": "build", "isDefault": true },
+        "problemMatcher": []
+      }
+    ]
+  }
+}
