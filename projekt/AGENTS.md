@@ -14,6 +14,9 @@
   Zachowuj PL Roman 12 pt, A4 i czarne klikalne odnośniki.
 - Narracyjne komentarze użytkownika są treścią opracowania. Zachowuj ich
   potoczny ton i sformułowania, poprawiając składnię, gramatykę i interpunkcję.
+- Oddzielaj dyktowaną treść matematyczną od wskazówek redakcyjnych.
+  Nie przenoś do opracowania odniesień do prompta, toku rozmowy ani wykonywania
+  poleceń użytkownika. Dowody mają zawierać argumentację matematyczną.
 - Po zmianie uruchom `kompiluj.ps1`, sprawdź logi, odnośniki i wygląd PDF-a.
   Pliki kompilacji pozostają w ignorowanym katalogu `build/`.
 - Podczas pracy uruchamiaj
