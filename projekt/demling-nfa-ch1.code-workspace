@@ -11,7 +11,7 @@
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "Zbuduj oba PDF-y",
+        "label": "Zbuduj PDF",
         "type": "process",
         "command": "powershell.exe",
         "args": [

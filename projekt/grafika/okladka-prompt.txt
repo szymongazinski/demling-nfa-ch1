@@ -1,0 +1,39 @@
+Narzędzie: wbudowany ImageGen.
+Format: jedna ilustrowana okładka A4.
+Osiem obrazów użytkownika posłużyło jako motywy.
+
+FINAL PROMPT:
+Create the FINAL FINISHED front cover of a Polish mathematical lecture notebook. ONE SINGLE portrait A4 PAGE, full bleed, high resolution. This is not a reference board. This is not a grid. This is not a mockup. Produce one sophisticated, spectacular, cohesively illustrated poster with all the requested motifs and typography on this one page.
+The references are only inspiration for characters, mathematical motifs and the humorous tone. REINTERPRET AND TRANSFORM them into one unified digital illustration; do NOT paste literal photos or screenshots, do NOT retain rectangular source-image backgrounds, do NOT make separate panels, paper cards, contact sheets or a patchwork grid.
+Art direction: a surreal, witty, high-energy nonlinear functional analysis cover, beautifully painted in one consistent editorial illustration style. Deep midnight blue/ultramarine, electric cyan lighting, ivory lettering and selective warm gold accents. Dense but expertly composed, clean readable typography, dramatic depth, rich details, no muddy clutter. Distinct typography hierarchy and spatial breathing room around the main title. A professional art-directed meme-math poster rather than a random collage. The entire illustration and all its texts must be comfortably inside the ONE page.
+
+Required source-inspired motifs, all reillustrated and integrated into the same world:
+- glowing blue super-intelligence head/brain with light rays;
+- the electrified shouting headphone-wearing man, the word 'Trywialne' organically integrated near him;
+- serious Oppenheimer-inspired man in a dark brimmed hat, as a stylized painted central or near-central character;
+- playful Einstein with his tongue out as a smaller illustrated character;
+- Euler with his white historical cap and blue coat as a smaller illustrated character;
+- the torus-to-mug HOMEOMORPHISM reimagined as a flowing elegant 3D morphing ribbon/sequence, with its funny caption next to it;
+- basis-change equations inspired by the last reference, integrated as elegant luminous/chalk mathematical notation with their own caption nearby;
+- permutation/cycle notation inspired by the last reference, dynamically integrated near Euler and its caption.
+The last reference groups the three mathematical inputs for convenience; DO NOT copy that reference-board layout. The first reference groups the blue brain and lightning meme for convenience; DO NOT copy its two-panel layout.
+
+TYPOGRAPHY — render ALL the following EXACT phrases clearly and correctly, exactly ONCE each, with correct Polish diacritics. No extra headlines or invented slogans:
+MAIN TITLE, very large and dominant, arranged intelligently over multiple lines:
+"Nieliniowa Analiza Funkcjonalna"
+(the main title may use uppercase)
+Caption next to torus-to-mug transformation:
+"Kubek Kleina?!"
+Caption next to basis-change mathematics, readable over two or three lines:
+"B do B′ czy B″ do B? nie da się stwierdzić"
+The signs B′ and B″ are B with one prime and B with two primes, respectively.
+A separate readable witty line:
+"Sformułuj twierdzenie weierstrassa"
+Emphatic dramatic line:
+"TEGO SIĘ NIE DA ZROBIĆ"
+Near Euler and permutation/cycle symbols:
+"Spermutacje"
+Near the electrified shouting character:
+"Trywialne"
+
+No literal screenshot pasting. No separate panels. No photographic rectangles. No additional page. No simple assembly of reference images. No extra text. No watermark. Transform everything into this one cohesive illustrated cover with composed typography. The humorous phrases must not be reduced to unreadable tiny captions. Portrait A4 aspect ratio approximately 1:1.414, flat artwork only.

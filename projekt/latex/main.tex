@@ -1,39 +1,55 @@
-\documentclass[12pt,a4paper,oneside]{report}
-\newif\ifchronologia
-\ifdefined\Chronologia\chronologiatrue\else\chronologiafalse\fi
-\input{preambula}
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[OT4,plmath]{polski}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\hypersetup{pdftitle={Nieliniowa Analiza Funkcjonalna}}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt}
+\allowdisplaybreaks[1]
+\theoremstyle{definition}
+\newtheorem{definicja}{Definicja}
+\newtheorem{przyklad}{Przykład}
+\newtheorem{uwaga}{Uwaga}
+\theoremstyle{plain}
+\newtheorem{fakt}{Fakt}
+\newtheorem{twierdzenie}{Twierdzenie}
+\newtheorem{lemat}{Lemat}
+\newtheorem{wniosek}{Wniosek}
+\renewcommand{\proofname}{Dowód}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
 
 \begin{document}
+
+% Okładka wypełnia całą pierwszą stronę A4.
 \hypersetup{pageanchor=false}
 \begin{titlepage}
-  \centering
-  {\large Semestr 3\par}
-  \vspace{3cm}
-  {\LARGE\bfseries Nieliniowa analiza funkcjonalna\par}
-  \vspace{0.6cm}
-  {\large Klaus Deimling -- rozdział 1\par}
-  \vspace{0.6cm}
-  \ifchronologia
-    {\large Opracowanie z podziałem na wykłady\par}
-  \else
-    {\large Opracowanie ogólne\par}
-  \fi
-  \vfill
+  \thispagestyle{empty}
+  \AddToShipoutPictureBG*{%
+    \AtPageLowerLeft{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{../grafika/okladka.png}%
+    }%
+  }
+  \null
 \end{titlepage}
-
 \hypersetup{pageanchor=true}
 \pagenumbering{arabic}
-\pagestyle{headings}
-\tableofcontents
-\clearpage
+\pagestyle{plain}
 
-% Ten plik ustala układ dokumentu. Treść wpisuj w plikach poniżej.
-\chapter{Stopień topologiczny w skończonych wymiarach}
-\input{rozdzialy/00-wprowadzenie}
-\input{rozdzialy/01-jednoznacznosc-stopnia}
-\input{rozdzialy/02-konstrukcja-stopnia}
-\input{rozdzialy/03-wlasnosci-stopnia}
-\input{rozdzialy/04-twierdzenie-borsuka}
-\input{rozdzialy/05-wzor-iloczynowy}
-\input{rozdzialy/06-uwagi-koncowe}
+% =====================================================================
+% TU WPISUJ CAŁĄ TREŚĆ OPRACOWANIA.
+% Wszystko pozostaje w tym jednym pliku, bez rozdziałów i wykładów.
+% Zapisz: Ctrl+S. Zbuduj PDF w katalogu głównym: Ctrl+Shift+B.
+% =====================================================================
+
+
+
 \end{document}
