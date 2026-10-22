@@ -95,4 +95,122 @@ spełniającą następujące własności:
   jest niezależna od $t\in J$.
 \end{enumerate}
 
+Nazywamy ją \textbf{stopniem topologicznym równania $f(x) = y$ na zbiorze $\Omega$}.
+
+\begin{uwaga}
+$(d3)$ oznacza tyle, że wewnątrz $\Omega$ rozwiązania mogą się przesuwać, powstawać albo znikać, jednak ich łączny wkład do stopnia topologicznego pozostaje taki sam.
+\end{uwaga}
+
+\section{Jednoznaczność stopnia}
+
+Przed podaniem wzoru na stopień topologiczny chcemy wykazać, że:
+
+\begin{twierdzenie}
+\label{tw:jednoznacznosc-stopnia}
+Istnieje co najwyżej jedna funkcja
+\[
+d\colon
+\left\{
+  (f,\Omega,y)\;\middle|\;
+  \begin{array}{l}
+    \Omega\subset\R^n\text{ jest otwarty i ograniczony},\\
+    f\colon\overline{\Omega}\to\R^n\text{ jest ciągła},\\
+    y\in\R^n\setminus f(\partial\Omega)
+  \end{array}
+\right\}
+\longrightarrow\Z
+\]
+spełniająca własności (d1)--(d3).
+\end{twierdzenie}
+
+Dowód jest długi, więc dzielimy jego szkic na części.
+
+\medskip
+
+Określiliśmy $d$ dla trójek $(f,\Omega,y)$, w których funkcja $f$ jest ciągła
+na domknięciu dziedziny $\Omega$. Z własności (d3) nasuwa się jednak myśl,
+że wystarczy analizować funkcje gładkie określone na całej przestrzeni.
+
+Możemy przedłużyć funkcję na całą przestrzeń, ponieważ $d$ dalej zależy tylko
+od jej wartości na $\overline{\Omega}$. Wygładzenie też jest legalne, jeśli
+przybliżenie jest na tyle bliskie jednostajnie, że odpowiednia homotopia
+nie wprowadza rozwiązań na brzegu. Pokażemy więc, jak funkcję ciągłą
+przybliżać jednostajnie funkcjami gładkimi.
+
+\medskip
+
+\begin{lemat}
+\label{lem:przedluzenie-funkcji}
+Jeżeli $A\subset\R^n$ jest zwarty, a $f\colon A\to\R^n$ jest ciągła,
+to istnieje ciągła funkcja $\widetilde{f}\colon\R^n\to\R^n$ spełniająca
+\[
+  \left.\widetilde{f}\right|_A=f.
+\]
+\end{lemat}
+
+\begin{proof}
+Jeśli $A=\varnothing$, wystarczy przyjąć $\widetilde{f}\equiv0$.
+Dla niepustego $A$ wybierzmy co najwyżej przeliczalny zbiór gęsty
+$\{a_1,a_2,\ldots\}\subset A$. Przy zbiorze skończonym można powtarzać
+jego punkty. Dla $x\notin A$ oznaczmy
+\[
+  \rho(x,A)=\inf_{a\in A}|x-a|>0,
+  \qquad
+  \varphi_j(x)=\max\left\{2-\frac{|x-a_j|}{\rho(x,A)},0\right\}.
+\]
+Definiujemy
+\[
+  \widetilde{f}(x)=
+  \begin{cases}
+    f(x), & x\in A,\\[2mm]
+    \displaystyle
+    \frac{\sum_{j=1}^{\infty}2^{-j}\varphi_j(x)f(a_j)}
+         {\sum_{j=1}^{\infty}2^{-j}\varphi_j(x)}, & x\notin A.
+  \end{cases}
+\]
+
+\smallskip
+\noindent\textbf{Poprawność zdefiniowania.}
+\begin{itemize}
+  \item Gęstość zbioru $\{a_j\}$ zapewnia dla każdego $x\notin A$
+  istnienie indeksu $j$ z $|x-a_j|<2\rho(x,A)$. Dla tego indeksu
+  $\varphi_j(x)>0$, więc mianownik jest dodatni.
+
+  \item $0\leq\varphi_j\leq2$, funkcja $f$ jest ograniczona na $A$,
+  a szereg $\sum_{j=1}^{\infty}2^{-j}$ jest zbieżny. Oba szeregi
+  we wzorze zbiegają jednostajnie. Ich składniki są ciągłe poza $A$,
+  zatem $\widetilde{f}$ jest tam ciągła.
+\end{itemize}
+
+\smallskip
+\noindent\textbf{Ciągłość w punktach zbioru $A$.}
+Ustalmy $x_0\in A$ i $\varepsilon>0$. Z ciągłości $f$ w $x_0$ wybieramy
+$\delta>0$ tak, aby dla $a\in A$ zachodziło
+\[
+  |a-x_0|<\delta\quad\Longrightarrow\quad|f(a)-f(x_0)|<\varepsilon.
+\]
+Jeżeli $x\notin A$ i $|x-x_0|<\delta/3$, to
+$\rho(x,A)\leq|x-x_0|$. Każdy indeks $j$, dla którego $\varphi_j(x)>0$,
+spełnia zatem
+\[
+  |a_j-x_0|\leq|a_j-x|+|x-x_0|
+  <2\rho(x,A)+|x-x_0|<\delta.
+\]
+Stąd
+\[
+  |\widetilde{f}(x)-f(x_0)|
+  \leq
+  \frac{\sum_{j=1}^{\infty}2^{-j}\varphi_j(x)|f(a_j)-f(x_0)|}
+       {\sum_{j=1}^{\infty}2^{-j}\varphi_j(x)}
+  \leq\varepsilon.
+\]
+Dla $x\in A$ mamy $\widetilde{f}(x)=f(x)$, więc ten przypadek wynika
+bezpośrednio z ciągłości $f$. Ponieważ $\widetilde{f}(x_0)=f(x_0)$,
+otrzymujemy ciągłość $\widetilde{f}$ także w $x_0$.
+\end{proof}
+
+
+
+
+
 \end{document}
