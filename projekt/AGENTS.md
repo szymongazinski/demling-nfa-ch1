@@ -1,6 +1,8 @@
 # Zasady projektu
 
-- Repozytorium `demling-nfa-ch1` pozostaje prywatne.
+- Repozytorium `demling-nfa-ch1` jest publiczne zgodnie z poleceniem użytkownika
+  z 23 października 2026 r. Zmieniaj widoczność wyłącznie na nowe, wyraźne
+  polecenie użytkownika; nie przywracaj ustawienia prywatnego.
 - Na polecenie użytkownika z 22 października 2026 r. usunięto wcześniejszą treść,
   grafikę matematyczną, dodatki oraz podział na rozdziały i wykłady.
   Nie przywracaj ich ani nie kopiuj dawnych opracowań bez nowego polecenia.

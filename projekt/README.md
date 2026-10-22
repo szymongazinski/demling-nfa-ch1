@@ -31,4 +31,4 @@ Pliki robocze kompilacji są w `build/` i nie trafiają do Git.
 Okładka została wygenerowana wbudowanym ImageGen z motywów ośmiu
 obrazów użytkownika. Prompt zapisano obok obrazu.
 Pierwsza strona to jedna kompozycja A4. Tekst opracowania: PL Roman, 12 pt.
-Repozytorium pozostaje prywatne.
+Repozytorium jest publiczne: [szymongazinski/demling-nfa-ch1](https://github.com/szymongazinski/demling-nfa-ch1).
