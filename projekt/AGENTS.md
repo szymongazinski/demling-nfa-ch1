@@ -17,6 +17,10 @@
 - Oddzielaj dyktowaną treść matematyczną od wskazówek redakcyjnych.
   Nie przenoś do opracowania odniesień do prompta, toku rozmowy ani wykonywania
   poleceń użytkownika. Dowody mają zawierać argumentację matematyczną.
+- Pisz zwięźle i rzeczowo, bez pustych sformułowań. Każde zdanie ma wnosić
+  treść matematyczną lub potrzebne uzasadnienie. Nie powtarzaj bez potrzeby
+  nazw metod dowodu (np. „na mocy charakteryzacji ciągowej”) ani wniosku,
+  który został już zapisany bezpośrednio przed nim we wzorze.
 - Po zmianie uruchom `kompiluj.ps1`, sprawdź logi, odnośniki i wygląd PDF-a.
   Pliki kompilacji pozostają w ignorowanym katalogu `build/`.
 - Podczas pracy uruchamiaj

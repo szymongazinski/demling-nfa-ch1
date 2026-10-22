@@ -192,8 +192,8 @@ ciągła na $A^c$. Mnożenie przez stałe $2^{-j}$ i $f(a_j)$ zachowuje ciągło
 \end{uwaga}
 
 \medskip
-Korzystamy z charakteryzacji ciągowej ciągłości. Weźmy dowolny punkt
-$x\in\R^n$ i dowolny ciąg $(x_k)\subset\R^n$ taki, że $x_k\to x$.
+Weźmy dowolny punkt $x\in\R^n$ i dowolny ciąg $(x_k)\subset\R^n$
+taki, że $x_k\to x$.
 Pokażemy, że $\widetilde{f}(x_k)\to\widetilde{f}(x)$.
 
 \begin{enumerate}
@@ -239,12 +239,11 @@ Pokażemy, że $\widetilde{f}(x_k)\to\widetilde{f}(x)$.
   \[
     |f(b_k)-f(x)|=\max_{a\in C_k}|f(a)-f(x)|.
   \]
-  Z samego wyboru punktów $b_k$ mamy
+  Z wyboru $b_k$ mamy
   \[
     |b_k-x|\leq3|x_k-x|\longrightarrow0,
   \]
-  czyli $b_k\to x$. Ponieważ $b_k\in A$, z charakteryzacji ciągowej
-  ciągłości $f$ dostajemy
+  Ponieważ $b_k\to x$ i $f$ jest ciągła w $x$,
   \[
     f(b_k)\longrightarrow f(x).
   \]
@@ -285,14 +284,11 @@ Pokażemy, że $\widetilde{f}(x_k)\to\widetilde{f}(x)$.
   \end{aligned}
   \]
 
-  W obu sytuacjach, dla każdego $k$, otrzymujemy
+  W obu przypadkach
   \[
     0\leq|\widetilde{f}(x_k)-\widetilde{f}(x)|
-    \leq|f(b_k)-f(x)|\longrightarrow0.
+    \leq|f(b_k)-f(x)|\longrightarrow0.\qedhere
   \]
-  Zatem $\widetilde{f}(x_k)\to\widetilde{f}(x)$.
-  Na mocy charakteryzacji ciągowej $\widetilde{f}$ jest ciągła
-  w punkcie $x\in\partial A$.\qedhere
 \end{enumerate}
 \end{proof}
 
