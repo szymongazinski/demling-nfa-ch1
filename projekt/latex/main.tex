@@ -44,12 +44,55 @@
 \pagenumbering{arabic}
 \pagestyle{plain}
 
-% =====================================================================
-% TU WPISUJ CAŁĄ TREŚĆ OPRACOWANIA.
-% Wszystko pozostaje w tym jednym pliku, bez rozdziałów i wykładów.
-% Zapisz: Ctrl+S. Zbuduj PDF w katalogu głównym: Ctrl+Shift+B.
-% =====================================================================
+\section{Wstęp}
 
+Zajmujemy się narzędziem opisującym liczbę rozwiązań równania $f(x) = y$ w przestrzeni rzeczywistej skończenie wymiarowej.
+W tym celu kładziemy funkcję:
+\[
+d\colon
+\left\{
+  (f,\Omega,y)\;\middle|\;
+  \begin{array}{l}
+    \Omega\subset\R^n\text{ jest otwarty i ograniczony},\\
+    f\colon\overline{\Omega}\to\R^n\text{ jest ciągła},\\
+    y\in\R^n\setminus f(\partial\Omega)
+  \end{array}
+\right\}
+\longrightarrow\Z,
+\]
+spełniającą następujące własności:
 
+\begin{enumerate}
+  \item[(d1)] \textbf{Normalizacja.} Dla $y\in\Omega$ zachodzi
+  \[
+    d(\operatorname{id},\Omega,y)=1.
+  \]
+
+  \item[(d2)] \textbf{Addytywność.} Jeżeli $\Omega_1,\Omega_2\subset\Omega$
+  są rozłącznymi zbiorami otwartymi oraz
+  \[
+    y\notin f\bigl(\overline{\Omega}\setminus(\Omega_1\cup\Omega_2)\bigr),
+  \]
+  to
+  \[
+    d(f,\Omega,y)=d(f,\Omega_1,y)+d(f,\Omega_2,y).
+  \]
+
+  \item[(d3)] \textbf{Niezmienniczość homotopijna.} Niech $J=[0,1]$.
+  Jeżeli odwzorowania
+  \[
+    h\colon J\times\overline{\Omega}\to\R^n,
+    \qquad y\colon J\to\R^n
+  \]
+  są ciągłe i dla każdego $t\in J$ spełniają warunek
+  \[
+    y(t)\notin h(t,\partial\Omega),
+  \]
+  to liczba
+  \[
+    d\bigl(h(t,\cdot),\Omega,y(t)\bigr)
+  \]
+  jest niezależna od $t\in J$.
+\end{enumerate}
 
 \end{document}
