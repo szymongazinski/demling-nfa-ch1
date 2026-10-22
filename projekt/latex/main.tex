@@ -228,20 +228,33 @@ Pokażemy, że $\widetilde{f}(x_k)\to\widetilde{f}(x)$.
 
   Ponieważ $A$ jest domknięty, $x\in A$, a więc $\widetilde{f}(x)=f(x)$.
   Ciąg $(x_k)$ może mieć wyrazy zarówno w $A$, jak i w $A^c$.
-  Rozpiszmy obie możliwości dla tego samego ciągu.
+  Dalej pracujemy z tym samym ciągiem.
 
-  Niech $\varepsilon>0$. Z ciągłości $f$ w $x$ wybieramy $\delta>0$ tak,
-  aby dla każdego $a\in A$ zachodziło
+  Dla każdego $k$ rozważmy zbiór
   \[
-    |a-x|<\delta\quad\Longrightarrow\quad|f(a)-f(x)|<\varepsilon.
+    C_k=\{a\in A:|a-x|\leq3|x_k-x|\}.
   \]
-  Z $x_k\to x$ istnieje $k_0$ takie, że dla $k\geq k_0$ mamy
-  $|x_k-x|<\delta/3$.
+  Jest on zwarty i niepusty, bo zawiera $x$. Ciągła funkcja
+  $a\mapsto|f(a)-f(x)|$ osiąga na nim maksimum. Wybierzmy więc $b_k\in C_k$
+  takie, że
+  \[
+    |f(b_k)-f(x)|=\max_{a\in C_k}|f(a)-f(x)|.
+  \]
+  Z samego wyboru punktów $b_k$ mamy
+  \[
+    |b_k-x|\leq3|x_k-x|\longrightarrow0,
+  \]
+  czyli $b_k\to x$. Ponieważ $b_k\in A$, z charakteryzacji ciągowej
+  ciągłości $f$ dostajemy
+  \[
+    f(b_k)\longrightarrow f(x).
+  \]
 
-  Jeśli taki wyraz $x_k$ należy do $A$, to od razu
+  Teraz oszacujemy wartości $\widetilde{f}$ na naszym ciągu $(x_k)$.
+  Jeśli $x_k\in A$, to $x_k\in C_k$, więc
   \[
     |\widetilde{f}(x_k)-\widetilde{f}(x)|
-    =|f(x_k)-f(x)|<\varepsilon.
+    =|f(x_k)-f(x)|\leq|f(b_k)-f(x)|.
   \]
 
   Jeśli natomiast $x_k\notin A$, korzystamy z tego, że $x\in A$:
@@ -259,29 +272,29 @@ Pokażemy, że $\widetilde{f}(x_k)\to\widetilde{f}(x)$.
   \[
     |a_j-x|\leq|a_j-x_k|+|x_k-x|
     <2\rho(x_k,A)+|x_k-x|
-    \leq3|x_k-x|<\delta.
+    \leq3|x_k-x|.
   \]
-  Z wyboru $\delta$ wynika więc $|f(a_j)-f(x)|<\varepsilon$ dla wszystkich
-  składników z dodatnią wagą. Wagi są nieujemne, a ich suma jest dodatnia.
-  Możemy zatem oszacować
+  Każdy punkt $a_j$ z dodatnią wagą należy więc do $C_k$. Z wyboru $b_k$
+  wynika zatem $|f(a_j)-f(x)|\leq|f(b_k)-f(x)|$.
+  Wagi są nieujemne, a ich suma jest dodatnia, więc
   \[
   \begin{aligned}
     |\widetilde{f}(x_k)-\widetilde{f}(x)|
-    &=\left|
-      \frac{\sum_{j=1}^{\infty}2^{-j}\varphi_j(x_k)\bigl(f(a_j)-f(x)\bigr)}
-           {\sum_{j=1}^{\infty}2^{-j}\varphi_j(x_k)}
-      \right|\\[2mm]
     &\leq
       \frac{\sum_{j=1}^{\infty}2^{-j}\varphi_j(x_k)|f(a_j)-f(x)|}
-           {\sum_{j=1}^{\infty}2^{-j}\varphi_j(x_k)}
-      <\varepsilon.
+           {\sum_{j=1}^{\infty}2^{-j}\varphi_j(x_k)}\\[2mm]
+    &\leq|f(b_k)-f(x)|.
   \end{aligned}
   \]
 
-  Dla każdego $k\geq k_0$ otrzymujemy więc
-  $|\widetilde{f}(x_k)-\widetilde{f}(x)|<\varepsilon$, niezależnie od tego,
-  czy $x_k$ leży w $A$, czy poza $A$. To znaczy, że
-  $\widetilde{f}(x_k)\to\widetilde{f}(x)$ także dla $x\in\partial A$.\qedhere
+  W obu sytuacjach, dla każdego $k$, otrzymujemy
+  \[
+    0\leq|\widetilde{f}(x_k)-\widetilde{f}(x)|
+    \leq|f(b_k)-f(x)|\longrightarrow0.
+  \]
+  Zatem $\widetilde{f}(x_k)\to\widetilde{f}(x)$, również gdy ciąg ma wyrazy
+  na przemian w $A$ i w $A^c$. To jest właśnie warunek z charakteryzacji
+  ciągowej ciągłości w punkcie $x\in\partial A$.\qedhere
 \end{enumerate}
 \end{proof}
 
