@@ -1,12 +1,13 @@
 # Nieliniowa Analiza Funkcjonalna
 
-Jeden dokument LaTeX i jeden PDF. Dotychczasowa treść została usunięta
-na polecenie użytkownika. Dokument zawiera nową ilustrowaną okładkę;
-miejsce na opracowanie pozostaje puste.
+Opracowanie z jednego pliku LaTeX, budowane w dwóch wariantach: bez oznaczeń
+wykładów i z oznaczeniami wykładów. PDF źródłowy książki jest osobnym plikiem.
 
 ```text
 demling-nfa-ch1/
 ├── Demling-NFA-ch1.pdf
+├── Demling-NFA-ch1-wyklady.pdf
+├── Demling_Nonlinear_Functional_Analysis_chapter1.pdf
 └── projekt/
     ├── latex/main.tex
     ├── grafika/okladka.png
@@ -16,19 +17,31 @@ demling-nfa-ch1/
     └── demling-nfa-ch1.code-workspace
 ```
 
-Otwórz obszar roboczy `demling-nfa-ch1.code-workspace` w VS Code.
-Całą treść wpisuj w `latex/main.tex`, pod komentarzem
-`TU WPISUJ CAŁĄ TREŚĆ OPRACOWANIA`, przed `\end{document}`.
-Preambuła i okładka znajdują się w tym samym pliku.
-Nie ma podziału na rozdziały ani wykłady i nie ma osobnych wariantów dokumentu.
+## Edycja
 
-`Ctrl+S` zapisuje tekst, `Ctrl+Shift+B` buduje PDF w katalogu głównym
-repozytorium, poza folderami `latex/` i `projekt/`.
-Dwukrotne kliknięcie `kompiluj.cmd` buduje i otwiera ten sam PDF.
+Otwórz `demling-nfa-ch1.code-workspace` w VS Code i edytuj `latex/main.tex`.
+Preambuła, okładka i całe opracowanie pozostają w tym jednym pliku.
+
+- Wykład 1 zaczyna się przy „Wstępie” i trwa do miejsca przed Lematem 1.
+- Wykład 2 obejmuje Lemat 1 wraz z jego dowodem.
+- Początki wykładów oznaczają polecenia `\poczatekwykladu{1}` i `\poczatekwykladu{2}`.
+- Wariant wykładowy pokazuje nagłówki „Wykład N” i poziomą kreskę, jak w skryptach teorii miary i rachunku prawdopodobieństwa.
+- Wariant zwykły pomija te oznaczenia. Treść i numeracja matematyczna są wspólne.
+
+## Kompilacja
+
+`Ctrl+S` zapisuje tekst, a `Ctrl+Shift+B` buduje oba opracowania w głównym
+katalogu repozytorium, obok folderu `projekt/`. Dwukrotne kliknięcie
+`kompiluj.cmd` buduje i otwiera oba PDF-y.
+
+Skrypt kompiluje ten sam `latex/main.tex` bez flagi i z flagą `Chronologia`.
+Nie ma drugiej kopii treści ani dodatkowego pliku `.tex` dla wariantu wykładowego.
+Wyniki aktualizują się po poprawnej kompilacji obu wariantów.
+Pliki robocze pozostają w ignorowanym `build/`.
 Wymagany jest `pdflatex` z MiKTeX lub TeX Live dostępny w PATH.
-Pliki robocze kompilacji są w `build/` i nie trafiają do Git.
 
-Okładka została wygenerowana wbudowanym ImageGen z motywów ośmiu
-obrazów użytkownika. Prompt zapisano obok obrazu.
-Pierwsza strona to jedna kompozycja A4. Tekst opracowania: PL Roman, 12 pt.
+Plik `Demling_Nonlinear_Functional_Analysis_chapter1.pdf` skopiowano z pulpitu
+użytkownika bez zmian; nie jest generowany przez skrypt kompilacji.
+
+Okładka jest wspólna dla obu opracowań. Tekst: A4, PL Roman, 12 pt.
 Repozytorium jest publiczne: [szymongazinski/demling-nfa-ch1](https://github.com/szymongazinski/demling-nfa-ch1).

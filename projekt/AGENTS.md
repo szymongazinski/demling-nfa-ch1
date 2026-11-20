@@ -3,13 +3,21 @@
 - Repozytorium `demling-nfa-ch1` jest publiczne zgodnie z poleceniem użytkownika
   z 23 października 2026 r. Zmieniaj widoczność wyłącznie na nowe, wyraźne
   polecenie użytkownika; nie przywracaj ustawienia prywatnego.
-- Na polecenie użytkownika z 22 października 2026 r. usunięto wcześniejszą treść,
-  grafikę matematyczną, dodatki oraz podział na rozdziały i wykłady.
-  Nie przywracaj ich ani nie kopiuj dawnych opracowań bez nowego polecenia.
+- Nie przywracaj dawnych opracowań, rozdziałów ani dodatków bez nowego
+  polecenia użytkownika.
 - Utrzymuj dokładnie jeden plik LaTeX: `latex/main.tex`.
   Preambuła, okładka i cała treść mają być w tym pliku; nie dziel go przez `\input`.
-- Utrzymuj jeden wynikowy PDF: `Demling-NFA-ch1.pdf` w katalogu głównym
-  repozytorium, poza `projekt/` i `latex/`. Nie twórz wariantu wykładowego.
+- W katalogu głównym repozytorium, poza `projekt/` i `latex/`, utrzymuj:
+  `Demling-NFA-ch1.pdf` (bez oznaczeń wykładów),
+  `Demling-NFA-ch1-wyklady.pdf` (z oznaczeniami wykładów)
+  oraz niezmieniony PDF źródłowy `Demling_Nonlinear_Functional_Analysis_chapter1.pdf`.
+- Oba opracowania buduj z tego samego `latex/main.tex`. Wariant wykładowy
+  włącza flaga `Chronologia`; nie twórz osobnego pliku `.tex` ani kopii treści.
+  Oznaczenia wykładów nie zmieniają numeracji matematycznej.
+- `\poczatekwykladu{1}` stoi przed „Wstępem”; Wykład 1 kończy się przed
+  Lematem 1. `\poczatekwykladu{2}` stoi bezpośrednio przed Lematem 1,
+  a Wykład 2 obejmuje lemat i jego dowód. Używaj nagłówka z poziomą kreską,
+  jak w skryptach teorii miary i rachunku prawdopodobieństwa.
 - Pierwsza strona PDF-a to pełnostronicowa okładka `grafika/okladka.png`.
   Obrazy i wszystkie hasła stanowią jedną spójną kompozycję na jednej stronie A4.
 - Tekst opracowania wpisuj pod oznaczonym komentarzem w `latex/main.tex`.
@@ -23,7 +31,7 @@
   treść matematyczną lub potrzebne uzasadnienie. Nie powtarzaj bez potrzeby
   nazw metod dowodu (np. „na mocy charakteryzacji ciągowej”) ani wniosku,
   który został już zapisany bezpośrednio przed nim we wzorze.
-- Po zmianie uruchom `kompiluj.ps1`, sprawdź logi, odnośniki i wygląd PDF-a.
+- Po zmianie uruchom `kompiluj.ps1`, sprawdź logi, odnośniki i wygląd obu PDF-ów.
   Pliki kompilacji pozostają w ignorowanym katalogu `build/`.
 - Podczas pracy uruchamiaj
   `C:\Users\szymo\AppData\Local\Programs\easyshut\EasyShut.exe -n`

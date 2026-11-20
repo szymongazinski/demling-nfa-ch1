@@ -1,4 +1,6 @@
 \documentclass[12pt,a4paper]{article}
+\newif\ifchronologia
+\ifdefined\Chronologia\chronologiatrue\else\chronologiafalse\fi
 \usepackage[utf8]{inputenc}
 \usepackage[OT4,plmath]{polski}
 \usepackage{amsmath,amssymb,amsthm}
@@ -27,6 +29,18 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
+% Znaczniki wykładów nie zmieniają treści ani numeracji matematycznej.
+\newcommand{\poczatekwykladu}[1]{%
+  \ifchronologia
+    \par\addvspace{\baselineskip}%
+    \phantomsection
+    \addcontentsline{toc}{section}{Wykład #1}%
+    \noindent{\large\bfseries Wykład #1}\par\nobreak
+    \noindent\rule{\linewidth}{0.4pt}\par\nobreak
+    \addvspace{0.5\baselineskip}%
+  \fi
+}
+
 \begin{document}
 
 % Okładka wypełnia całą pierwszą stronę A4.
@@ -44,6 +58,7 @@
 \pagenumbering{arabic}
 \pagestyle{plain}
 
+\poczatekwykladu{1}
 \section{Wstęp}
 
 Zajmujemy się narzędziem opisującym liczbę rozwiązań równania $f(x) = y$ w przestrzeni rzeczywistej skończenie wymiarowej.
@@ -139,6 +154,7 @@ przybliżać jednostajnie funkcjami gładkimi.
 
 \medskip
 
+\poczatekwykladu{2}
 \begin{lemat}
 \label{lem:przedluzenie-funkcji}
 Jeżeli $A\subset\R^n$ jest zwarty, a $f\colon A\to\R^n$ jest ciągła,
@@ -182,113 +198,112 @@ Szeregi liczbowe $\sum_{j=1}^{\infty}2^{1-j}$ i
 $\sum_{j=1}^{\infty}2^{1-j}K$ są zbieżne. Z kryterium Weierstrassa
 otrzymujemy więc jednostajną zbieżność obu szeregów funkcji.
 
-Ich składniki są ciągłe na $A^c$. Funkcja odległości jest ciągła, ponieważ
-\[
-  |\rho(u,A)-\rho(v,A)|\leq|u-v|.
-\]
-Na $A^c$ jest ona dodatnia, więc iloraz $|z-a_j|/\rho(z,A)$ jest ciągły.
+Składniki obu szeregów są ciągłe na $A^c$. Funkcja odległości jest ciągła
+i dodatnia na $A^c$, więc iloraz $|z-a_j|/\rho(z,A)$ jest ciągły.
 Maksimum funkcji ciągłej i zera jest ciągłe, zatem każda $\varphi_j$ jest
 ciągła na $A^c$. Mnożenie przez stałe $2^{-j}$ i $f(a_j)$ zachowuje ciągłość.
 \end{uwaga}
 
 \medskip
-Weźmy dowolny punkt $x\in\R^n$ i dowolny ciąg $(x_k)\subset\R^n$
-taki, że $x_k\to x$.
-Pokażemy, że $\widetilde{f}(x_k)\to\widetilde{f}(x)$.
+Chcemy wykazać, że $\widetilde{f}$ jest ciągła. Ustalmy $x_0\in\R^n$.
 
 \begin{enumerate}
-  \item[$1^\circ$] \textbf{$x$ należy do wnętrza $A$.}
+  \item[$1^\circ$] \textbf{Niech $x_0\notin A$.}
 
-  Istnieje $r>0$ takie, że $B(x,r)\subset A$. Ponieważ $x_k\to x$,
-  istnieje $k_0$ takie, że dla $k\geq k_0$ mamy $|x_k-x|<r$.
-  Dalsze wyrazy ciągu siedzą więc już w $B(x,r)$, a tym samym w $A$.
-  Z definicji przedłużenia i ciągłości $f$ dostajemy
   \[
-    \widetilde{f}(x_k)=f(x_k)\longrightarrow f(x)=\widetilde{f}(x).
+    \lim_{x\to x_0}\widetilde{f}(x)=\widetilde{f}(x_0).
+  \]
+  Zwartość $A$ pozwala odgrodzić $x_0$ kulą rozłączną z $A$.
+  Granicę wprowadzamy do licznika i mianownika, a następnie pod oba szeregi,
+  ponieważ są one jednostajnie zbieżne, a wszystkie $\varphi_j$ są ciągłe na $A^c$.
+
+  \item[$2^\circ$] \textbf{Niech $x_0\in A$.}
+
+  Wtedy $\widetilde{f}(x_0)=f(x_0)$. Ustalmy $\varepsilon>0$.
+  Z ciągłości $f$ wybieramy $\delta_1>0$ takie, że
+  \[
+    a\in A,\quad |a-x_0|<\delta_1
+    \quad\Longrightarrow\quad
+    |f(a)-f(x_0)|<\varepsilon.
   \]
 
-  \item[$2^\circ$] \textbf{$x$ nie należy do $A$.}
-
-  Zbiór $A^c$ jest otwarty, bo $A$ jest domknięty. Możemy więc ogrodzić się
-  kulą $B(x,r)\subset A^c$. Zbieżność $x_k\to x$ oznacza, że od pewnego
-  miejsca ciąg siedzi w tej kuli, a zatem w $A^c$.
-
-  W tej kuli mamy tylko wartości dane ilorazem szeregów. Z wcześniejszej
-  uwagi oba szeregi składają się z funkcji ciągłych i zbiegają jednostajnie.
-  Suma szeregu funkcji ciągłych zbiegającego jednostajnie jest funkcją ciągłą.
-
-  Mianownik jest dodatni: dla każdego $z\in A^c$ gęstość zbioru $\{a_j\}$
-  daje indeks $j$ z $|z-a_j|<2\rho(z,A)$, czyli $\varphi_j(z)>0$.
-  Iloraz funkcji ciągłych z niezerowym mianownikiem jest ciągły, więc
+  Rozważmy najpierw $x\notin A$ spełniające
   \[
-    \widetilde{f}(x_k)\longrightarrow\widetilde{f}(x).
+    |x-x_0|<\frac{\delta_1}{3}.
   \]
-
-  \item[$3^\circ$] \textbf{$x$ leży na brzegu $A$.}
-
-  Ponieważ $A$ jest domknięty, $x\in A$, a więc $\widetilde{f}(x)=f(x)$.
-  Ciąg $(x_k)$ może mieć wyrazy zarówno w $A$, jak i w $A^c$.
-
-  Dla każdego $k$ rozważmy zbiór
+  Oznaczmy
   \[
-    C_k=\{a\in A:|a-x|\leq3|x_k-x|\}.
+    I(x)=\{j\geq1:\varphi_j(x)>0\}.
   \]
-  Jest on zwarty i niepusty, bo zawiera $x$. Ciągła funkcja
-  $a\mapsto|f(a)-f(x)|$ osiąga na nim maksimum. Wybierzmy więc $b_k\in C_k$
-  takie, że
+  Dla $j\in I(x)$ mamy
   \[
-    |f(b_k)-f(x)|=\max_{a\in C_k}|f(a)-f(x)|.
+    |x-a_j|<2\rho(x,A).
   \]
-  Z wyboru $b_k$ mamy
-  \[
-    |b_k-x|\leq3|x_k-x|\longrightarrow0,
-  \]
-  Ponieważ $b_k\to x$ i $f$ jest ciągła w $x$,
-  \[
-    f(b_k)\longrightarrow f(x).
-  \]
-
-  Jeśli $x_k\in A$, to $x_k\in C_k$, więc
-  \[
-    |\widetilde{f}(x_k)-\widetilde{f}(x)|
-    =|f(x_k)-f(x)|\leq|f(b_k)-f(x)|.
-  \]
-
-  Jeśli natomiast $x_k\notin A$, korzystamy z tego, że $x\in A$:
-  \[
-    \rho(x_k,A)=\inf_{a\in A}|x_k-a|\leq|x_k-x|.
-  \]
-  W szeregu liczą się tylko indeksy $j$, dla których $\varphi_j(x_k)>0$.
-  Dla każdego takiego indeksu definicja $\varphi_j$ daje
-  \[
-    2-\frac{|x_k-a_j|}{\rho(x_k,A)}>0,
-    \qquad\text{czyli}\qquad
-    |x_k-a_j|<2\rho(x_k,A).
-  \]
-  Stąd
-  \[
-    |a_j-x|\leq|a_j-x_k|+|x_k-x|
-    <2\rho(x_k,A)+|x_k-x|
-    \leq3|x_k-x|.
-  \]
-  Każdy punkt $a_j$ z dodatnią wagą należy więc do $C_k$. Z wyboru $b_k$
-  wynika zatem $|f(a_j)-f(x)|\leq|f(b_k)-f(x)|$.
-  Wagi są nieujemne, a ich suma jest dodatnia, więc
+  Ponieważ $x_0\in A$, zachodzi $\rho(x,A)\leq|x-x_0|$, a zatem
   \[
   \begin{aligned}
-    |\widetilde{f}(x_k)-\widetilde{f}(x)|
+    |a_j-x_0|
+    &\leq|a_j-x|+|x-x_0|\\
+    &<2\rho(x,A)+|x-x_0|\\
+    &\leq3|x-x_0|<\delta_1.
+  \end{aligned}
+  \]
+  Dodatnie wagi mają więc tylko te punkty ośrodka $a_j$, które znajdują się
+  w $B(x_0,\delta_1)$. Ponieważ wszystkie te punkty należą do $A$, otrzymujemy
+  \[
+    |f(a_j)-f(x_0)|<\varepsilon
+    \qquad\text{dla każdego }j\in I(x).
+  \]
+
+  Dla indeksów spoza $I(x)$ mamy $\varphi_j(x)=0$, więc
+  \[
+  \begin{aligned}
+    \sum_{j=1}^{\infty}2^{-j}\varphi_j(x)f(a_j)
+    &=\sum_{j\in I(x)}2^{-j}\varphi_j(x)f(a_j),\\
+    \sum_{j=1}^{\infty}2^{-j}\varphi_j(x)
+    &=\sum_{j\in I(x)}2^{-j}\varphi_j(x).
+  \end{aligned}
+  \]
+  Zbiór $I(x)$ jest niepusty, a odpowiadające mu wagi są dodatnie. Stąd
+  \[
+  \begin{aligned}
+    |\widetilde{f}(x)-\widetilde{f}(x_0)|
+    &=
+    \left|
+    \frac{\sum_{j\in I(x)}2^{-j}\varphi_j(x)\bigl(f(a_j)-f(x_0)\bigr)}
+         {\sum_{j\in I(x)}2^{-j}\varphi_j(x)}
+    \right|\\[2mm]
     &\leq
-      \frac{\sum_{j=1}^{\infty}2^{-j}\varphi_j(x_k)|f(a_j)-f(x)|}
-           {\sum_{j=1}^{\infty}2^{-j}\varphi_j(x_k)}\\[2mm]
-    &\leq|f(b_k)-f(x)|.
+    \frac{\sum_{j\in I(x)}2^{-j}\varphi_j(x)|f(a_j)-f(x_0)|}
+         {\sum_{j\in I(x)}2^{-j}\varphi_j(x)}\\[2mm]
+    &<
+    \frac{\varepsilon\sum_{j\in I(x)}2^{-j}\varphi_j(x)}
+         {\sum_{j\in I(x)}2^{-j}\varphi_j(x)}
+    =\varepsilon.
   \end{aligned}
   \]
 
-  W obu przypadkach
+  Rozważmy teraz $x\in A$. Dla tego samego $\varepsilon$, z ciągłości $f$
+  istnieje $\delta_2>0$ takie, że
   \[
-    0\leq|\widetilde{f}(x_k)-\widetilde{f}(x)|
-    \leq|f(b_k)-f(x)|\longrightarrow0.\qedhere
+  \begin{gathered}
+    x\in A,\quad |x-x_0|<\delta_2\\
+    \Longrightarrow\quad
+    |\widetilde{f}(x)-\widetilde{f}(x_0)|
+    =|f(x)-f(x_0)|<\varepsilon.
+  \end{gathered}
   \]
+
+  Wybierzmy wspólnie
+  \[
+    \delta=\min\left\{\frac{\delta_1}{3},\delta_2\right\}.
+  \]
+  Jeżeli $|x-x_0|<\delta$, to dla $x\notin A$ obowiązuje pierwsze oszacowanie,
+  a dla $x\in A$ drugie. W obu przypadkach
+  \[
+    |\widetilde{f}(x)-\widetilde{f}(x_0)|<\varepsilon.
+  \]
+  Zatem $\widetilde{f}$ jest ciągła w $x_0$.\qedhere
 \end{enumerate}
 \end{proof}
 
