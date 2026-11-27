@@ -307,8 +307,77 @@ Chcemy wykazać, że $\widetilde{f}$ jest ciągła. Ustalmy $x_0\in\R^n$.
 \end{enumerate}
 \end{proof}
 
+\clearpage
+\poczatekwykladu{3}
 
+Przekształciliśmy funkcję ciągłą na pewnym zbiorze do funkcji ciągłej na całej
+przestrzeni z zachowaniem stopnia topologicznego. Teraz chcemy ją wygładzić.
 
+Przed dowodem samego twierdzenia warto się zapoznać z pojęciem splotu
+funkcji\footnote{Zobacz artykuł na
+\href{https://en.wikipedia.org/wiki/Convolution}{wikipedii}, chociaż osobiście
+polecam \href{https://youtu.be/IaSGqQa5O-M?si=cN_FpBQokLcn7rSP&t=658}{filmik 3Blue1Brown}
+oraz pobaw się \href{https://szymongazinski.github.io/convolution-sandbox/}{wizualizacją}.}.
 
+Jednak w pigułce: dla funkcji $f,g\colon\R\to\R$ ich \textbf{splot}
+$f*g$ (czytamy: $f$ splecione z $g$) definiujemy wzorem
+\[
+  (f*g)(x)=\int_{\R}f(t)\,g(x-t)\,dt,
+\]
+o ile całka jest zbieżna.
+
+Skupmy się jednak na ustalonym $f$ oraz na szczególnych rodzajach funkcji $g$.
+Gdy położymy $g$ równe $1$ na przedziale $[-1,1]$ oraz $0$ w każdym innym
+punkcie, splot $f$ z $g$ będzie każdemu punktowi $x$ przypisywał
+,,średnią'', rozumianą tu jako całkę z $f$ po otoczeniu punktu $x$
+(jedną jednostkę w lewo i w prawo):
+\[
+  (f*g)(x)=\int_{x-1}^{x+1}f(t)\,dt.
+\]
+Średnią w ścisłym sensie otrzymujemy po podzieleniu tej całki przez $2$.
+
+\begin{center}
+  \includegraphics[width=\linewidth]{../grafika/splot-przyklad.png}
+\end{center}
+
+W naszej konstrukcji chcemy innego, bardziej przydatnego w tym kontekście
+,,modyfikatora'' funkcji $f$, ale ,,wyciąganie lokalnej średniej ważonej''
+to dalej główny pomysł, który stoi za tą ideą.
+
+\newpage
+\begingroup
+\renewcommand{\thelemat}{\arabic{lemat}a}
+\begin{lemat}
+\label{lem:wygladzanie-funkcji}
+Niech $A\subset\R^n$ będzie zwarty, $f\colon A\to\R^n$ będzie ciągła
+oraz $\varepsilon>0$. Wówczas istnieje funkcja
+$g\in C^\infty(\R^n;\R^n)$ taka, że
+\[
+  |f(x)-g(x)|\leq\varepsilon
+  \qquad\text{dla każdego }x\in A.
+\]
+\end{lemat}
+\endgroup
+
+Do wygładzenia funkcji potrzebujemy tzw. rodziny jąder wygładzających
+(z ang. \emph{mollifiers}). Połóżmy
+\[
+  \varphi_1(x)=
+  \begin{cases}
+    \displaystyle c\exp\!\left(-\frac{1}{1-|x|^2}\right), & |x|<1,\\[2mm]
+    0, & |x|\geq1,
+  \end{cases}
+  \qquad x\in\R^n,
+\]
+z takim $c>0$, że
+\[
+  \int_{\R^n}\varphi_1(x)\,dx=1
+\]
+(,,wagi'' naszej ,,funkcji uśredniającej'' ,,sumują'' się do jedynki).
+Naszą rodzinę definiujemy wzorem
+\[
+  \varphi_\alpha(x)=\alpha^{-n}\varphi_1\!\left(\frac{x}{\alpha}\right),
+  \qquad x\in\R^n,\quad\alpha>0.
+\]
 
 \end{document}

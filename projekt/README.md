@@ -12,6 +12,7 @@ demling-nfa-ch1/
     ├── latex/main.tex
     ├── grafika/okladka.png
     ├── grafika/okladka-prompt.txt
+    ├── grafika/splot-przyklad.png
     ├── kompiluj.ps1
     ├── kompiluj.cmd
     └── demling-nfa-ch1.code-workspace
@@ -24,7 +25,8 @@ Preambuła, okładka i całe opracowanie pozostają w tym jednym pliku.
 
 - Wykład 1 zaczyna się przy „Wstępie” i trwa do miejsca przed Lematem 1.
 - Wykład 2 obejmuje Lemat 1 wraz z jego dowodem.
-- Początki wykładów oznaczają polecenia `\poczatekwykladu{1}` i `\poczatekwykladu{2}`.
+- Wykład 3 wprowadza splot funkcji, Lemat 2a i rodzinę jąder wygładzających.
+- Początki wykładów oznaczają polecenia `\poczatekwykladu{1}`, `\poczatekwykladu{2}` i `\poczatekwykladu{3}`.
 - Wariant wykładowy pokazuje nagłówki „Wykład N” i poziomą kreskę, jak w skryptach teorii miary i rachunku prawdopodobieństwa.
 - Wariant zwykły pomija te oznaczenia. Treść i numeracja matematyczna są wspólne.
 

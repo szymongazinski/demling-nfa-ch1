@@ -16,7 +16,9 @@
   Oznaczenia wykładów nie zmieniają numeracji matematycznej.
 - `\poczatekwykladu{1}` stoi przed „Wstępem”; Wykład 1 kończy się przed
   Lematem 1. `\poczatekwykladu{2}` stoi bezpośrednio przed Lematem 1,
-  a Wykład 2 obejmuje lemat i jego dowód. Używaj nagłówka z poziomą kreską,
+  a Wykład 2 obejmuje lemat i jego dowód. `\poczatekwykladu{3}` stoi przed
+  wprowadzeniem do splotu i wygładzania funkcji oraz Lematem 2a.
+  Używaj nagłówka z poziomą kreską,
   jak w skryptach teorii miary i rachunku prawdopodobieństwa.
 - Pierwsza strona PDF-a to pełnostronicowa okładka `grafika/okladka.png`.
   Obrazy i wszystkie hasła stanowią jedną spójną kompozycję na jednej stronie A4.
