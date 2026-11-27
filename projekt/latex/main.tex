@@ -20,6 +20,7 @@
 \newtheorem{uwaga}{Uwaga}
 \theoremstyle{plain}
 \newtheorem{fakt}{Fakt}
+\newtheorem*{faktbeznum}{Fakt}
 \newtheorem{twierdzenie}{Twierdzenie}
 \newtheorem{lemat}{Lemat}
 \newtheorem{wniosek}{Wniosek}
@@ -307,7 +308,6 @@ Chcemy wykazać, że $\widetilde{f}$ jest ciągła. Ustalmy $x_0\in\R^n$.
 \end{enumerate}
 \end{proof}
 
-\clearpage
 \poczatekwykladu{3}
 
 Przekształciliśmy funkcję ciągłą na pewnym zbiorze do funkcji ciągłej na całej
@@ -344,7 +344,6 @@ W naszej konstrukcji chcemy innego, bardziej przydatnego w tym kontekście
 ,,modyfikatora'' funkcji $f$, ale ,,wyciąganie lokalnej średniej ważonej''
 to dalej główny pomysł, który stoi za tą ideą.
 
-\newpage
 \begingroup
 \renewcommand{\thelemat}{\arabic{lemat}a}
 \begin{lemat}
@@ -359,6 +358,7 @@ $g\in C^\infty(\R^n;\R^n)$ taka, że
 \end{lemat}
 \endgroup
 
+\noindent\textit{Dowód.}
 Do wygładzenia funkcji potrzebujemy tzw. rodziny jąder wygładzających
 (z ang. \emph{mollifiers}). Połóżmy
 \[
@@ -379,5 +379,90 @@ Naszą rodzinę definiujemy wzorem
   \varphi_\alpha(x)=\alpha^{-n}\varphi_1\!\left(\frac{x}{\alpha}\right),
   \qquad x\in\R^n,\quad\alpha>0.
 \]
+
+\begin{center}
+  \includegraphics[width=0.84\linewidth]{../grafika/fi-1-geogebra.png}\\[0.4em]
+  {\small Wykres $p(x)=\varphi_1(x)/c$ dla $n=1$, wykonany w GeoGebrze.}
+\end{center}
+
+\begin{faktbeznum}
+Ustalmy $\alpha>0$. Funkcja $\varphi_\alpha\colon\R^n\to\R$ jest gładka.
+\end{faktbeznum}
+
+\begin{proof}
+Funkcja $x\mapsto x/\alpha$ jest liniowa, czyli gładka. Złożenie funkcji
+gładkich jest gładkie, a mnożenie przez stałą również zachowuje tę własność.
+Wystarczy zatem wykazać, że $\varphi_1$ jest gładka.
+
+\begin{samepage}
+Dla $|x|<1$ mamy
+\[
+  1-|x|^2=1-\sum_{i=1}^n x_i^2>0.
+\]
+Jest to wielomian, więc funkcja gładka. Złożenie go z gładką na $(0,\infty)$
+funkcją $t\mapsto1/t$, a następnie z funkcją $t\mapsto\exp(-t)$
+i pomnożenie przez $c$ daje funkcję gładką.
+\end{samepage}
+
+Dla $|x|>1$ funkcja $\varphi_1$ jest stale równa $0$, więc też jest gładka.
+Wystarczy zatem rozważyć punkty, w których $|x|=1$.
+Połóżmy $\psi\colon\R\to\R$,
+\[
+  \psi(t)=
+  \begin{cases}
+    \exp(-1/t), & t>0,\\
+    0, & t\leq0.
+  \end{cases}
+\]
+Wówczas
+\[
+  \varphi_1(x)=c\,\psi\bigl(1-|x|^2\bigr),
+  \qquad |x|=1\iff 1-|x|^2=0.
+\]
+Wystarczy więc sprawdzić gładkość $\psi$ w $0$.
+
+Wykażemy indukcyjnie, że dla każdego $k\geq0$ istnieje wielomian $P_k$
+taki, że $\psi^{(k)}$ jest ciągła oraz
+\[
+  \psi^{(k)}(t)=
+  \begin{cases}
+    P_k(1/t)e^{-1/t}, & t>0,\\
+    0, & t\leq0.
+  \end{cases}
+\]
+Dla $k=0$ bierzemy $P_0=1$. Ciągłość w $0$ wynika z granicy
+$\lim_{t\to0^+}e^{-1/t}=0$.
+
+Załóżmy, że wzór zachodzi dla $k$. Dla $t>0$, różniczkując, otrzymujemy
+\[
+  \psi^{(k+1)}(t)
+  =\frac{1}{t^2}\bigl(P_k(1/t)-P_k'(1/t)\bigr)e^{-1/t}
+  =P_{k+1}(1/t)e^{-1/t},
+\]
+gdzie
+\[
+  P_{k+1}(s)=s^2\bigl(P_k(s)-P_k'(s)\bigr).
+\]
+Dla $t<0$ pochodna jest równa $0$. W punkcie $0$ liczymy ją z definicji:
+\[
+  \lim_{t\to0^+}
+  \frac{\psi^{(k)}(t)-\psi^{(k)}(0)}{t}
+  =\lim_{s\to+\infty}sP_k(s)e^{-s}=0,
+  \qquad s=\frac{1}{t}.
+\]
+Funkcja wykładnicza $e^s$ rośnie szybciej niż dowolny wielomian.
+Lewostronny iloraz różnicowy jest równy $0$, więc $\psi^{(k+1)}(0)=0$.
+Ponadto
+\[
+  \lim_{t\to0^+}\psi^{(k+1)}(t)
+  =\lim_{s\to+\infty}P_{k+1}(s)e^{-s}
+  =0=\psi^{(k+1)}(0),
+\]
+a od lewej pochodna jest stale zerowa. Zatem $\psi^{(k+1)}$ jest ciągła
+w $0$, co kończy krok indukcyjny.
+
+Otrzymujemy $\psi\in C^\infty(\R)$, a stąd gładkość $\varphi_1$
+i $\varphi_\alpha$.
+\end{proof}
 
 \end{document}

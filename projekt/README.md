@@ -13,6 +13,7 @@ demling-nfa-ch1/
     ├── grafika/okladka.png
     ├── grafika/okladka-prompt.txt
     ├── grafika/splot-przyklad.png
+    ├── grafika/fi-1-geogebra.png
     ├── kompiluj.ps1
     ├── kompiluj.cmd
     └── demling-nfa-ch1.code-workspace
